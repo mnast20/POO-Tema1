@@ -7,6 +7,9 @@ import entertainment.Video;
 import java.util.ArrayList;
 
 public final class Filter {
+    /**
+     * Method returning all videos made in given years from a list of videos
+     */
     public ArrayList<Video> yearFilter(final ArrayList<String> years,
                                        final ArrayList<Video> videos) {
         ArrayList<Video> videosMadeInYears = new ArrayList<>();
@@ -26,6 +29,9 @@ public final class Filter {
         return videosMadeInYears;
     }
 
+    /**
+     * Method returning all videos with given genres from a list of videos
+     */
     public ArrayList<Video> genreFilter(final ArrayList<String> genres,
                                         final ArrayList<Video> videoList) {
         ArrayList<Video> videosMadeInGenres = new ArrayList<>();
@@ -41,12 +47,17 @@ public final class Filter {
         return videosMadeInGenres;
     }
 
+    /**
+     * Method returning all actors with given words in their career description from an actor list
+     */
     public ArrayList<Actor> wordsFilter(final ArrayList<String> words,
                                         final ArrayList<Actor> actors) {
         ArrayList<Actor> actorsWithKeywords = new ArrayList<>();
 
         for (Actor actor: actors) {
+            // check if actor has all the given awards
             if (actor.checkForKeywords(words)) {
+                // add actor to filtered list
                 actorsWithKeywords.add(actor);
             }
         }
@@ -54,12 +65,17 @@ public final class Filter {
         return actorsWithKeywords;
     }
 
+    /**
+     * Method returning all actors with given awards from an actor list
+     */
     public ArrayList<Actor> awardsFilter(final ArrayList<ActorsAwards> awards,
                                          final ArrayList<Actor> actors) {
         ArrayList<Actor> actorsWithAwards = new ArrayList<>();
 
         for (Actor actor: actors) {
+            // check if actor's career description includes all given words
             if (actor.checkAwards(awards)) {
+                // add actor to filtered list
                 actorsWithAwards.add(actor);
             }
         }

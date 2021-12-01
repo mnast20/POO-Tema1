@@ -16,6 +16,9 @@ public class Video {
     private int nrViews;
     private int nrFavourites;
 
+    /**
+     * Video copy constructor based on another video
+     */
     public Video(final Video video) {
         this.title = video.title;
         this.year = video.year;
@@ -28,6 +31,9 @@ public class Video {
         nrFavourites = video.nrFavourites;
     }
 
+    /**
+     * Video copy constructor based on video input data
+     */
     public Video(final ShowInput videoData) {
         this.title = videoData.getTitle();
         this.year = videoData.getYear();
@@ -38,6 +44,9 @@ public class Video {
         nrFavourites = 0;
     }
 
+    /**
+     * Method copying a video
+     */
     public Video copy() {
         return new Video(this);
     }
@@ -82,25 +91,36 @@ public class Video {
         this.nrFavourites = nrFavourites;
     }
 
+    /**
+     * Method returning the duration of a video
+     */
     public int getDuration() {
         return 0;
     }
 
+    /**
+     * Method calculating the average rating of a video
+     */
     public double calculateRating() {
         return 0;
     }
 
+    /**
+     * Method checking if video has all required genres
+     */
     public boolean checkVideoGenres(final ArrayList<String> requiredGenres) {
         int nr = 0;
 
         for (String genre: genres) {
             for (String requiredGenre: requiredGenres) {
+                // check if video genre is among the required genres
                 if (genre.compareTo(requiredGenre) == 0) {
                     nr++;
                     break;
                 }
             }
             if (nr == requiredGenres.size()) {
+                // all required genres were found
                 return true;
             }
         }
@@ -108,12 +128,17 @@ public class Video {
         return false;
     }
 
+    /**
+     * Method calculating video views
+     */
     public int calculateVideoViews() {
         int nrOfViews = 0;
         ArrayList<User> users = Database.getDatabase().getAllUsers();
 
+        // calculate sum of video views
         for (User user: users) {
             Map<String, Integer> history = user.getHistory();
+            // get user's video views
             Integer nrViewsUser = history.get(title);
 
             if (nrViewsUser != null) {

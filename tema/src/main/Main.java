@@ -76,25 +76,31 @@ public final class Main {
         Writer fileWriter = new Writer(filePath2);
         JSONArray arrayResult = new JSONArray();
 
+        // add users, videos and actors from input to database
         Database.getDatabase().addActors(input.getActors());
         Database.getDatabase().addUsers(input.getUsers());
         Database.getDatabase().addVideos(input.getMovies(), input.getSerials());
 
+        // calculate number of video views and favourites
         new VideoUtil().calculateAllViews();
         new VideoUtil().calculateNrFavouritesVideos();
 
         for (ActionInputData action: input.getCommands()) {
             SolveAction solve = new SolveAction();
             solve.solveAction(action);
+            // get action result
             Result finalResult = solve.getFinalResult();
 
+            // put result in JSON Array
             JSONObject jsonResult =
                     fileWriter.writeFile(finalResult.getId(), "", finalResult.getMessage());
             arrayResult.add(jsonResult);
         }
 
+        // clear Database
         Database.getDatabase().clear();
 
+        // close output file
         fileWriter.closeJSON(arrayResult);
     }
 }

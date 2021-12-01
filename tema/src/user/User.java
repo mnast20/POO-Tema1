@@ -13,6 +13,9 @@ public final class User {
     private final Map<String, ArrayList<Integer>> ratedVideos;
     private int nrRatings;
 
+    /**
+     * User copy constructor based on another user
+     */
     public User(final User user) {
         this.username = user.username;
         this.subscriptionType = user.subscriptionType;
@@ -24,6 +27,9 @@ public final class User {
         this.nrRatings = user.nrRatings;
     }
 
+    /**
+     * User copy constructor based on user input data
+     */
     public User(final UserInputData user) {
         username = user.getUsername();
         subscriptionType = user.getSubscriptionType();

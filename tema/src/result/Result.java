@@ -1,5 +1,8 @@
 package result;
 
+/**
+ * Class holding any action result
+ */
 public final class Result {
     private final int id;
     private final String message;
