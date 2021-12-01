@@ -22,8 +22,8 @@ that this class retains the number of overall awards in order to not always calc
 whenever sorting actors by awards.
 
     Video: class extended by the Movie and Show entities, keeps a video's title, list of genres,
-cast, rating and year of making, as well as number of views and number of appearances within users'
-favourites list.
+cast, duration, rating and year of making, as well as number of views and number of appearances
+within users' favourites list.
     Movie: class storing a movie's duration and list of given ratings from all users that will
 be used in finding movie's average rating.
 
@@ -46,8 +46,8 @@ executed and returns the action's result
     SolveQRecommendation: This class is meant to determine the recommendation type and execute it
 
     Command: There are three types of commands: view, favourite and add rating.
-    If user views a video, then his history gets updated and the video's overall views increase.
-    The favourite command is similar, but only if video isn't present in the user's
+    If the user views a video, then his history gets updated and the video's overall views increase.
+    The favourite command is similar, but only if the video isn't present in the user's
 favourites list, will it be updated and video's overall number of favourites will increase.
     However, if the command is for adding a rating, it is first checked whether the rated video
 is a show or a movie. In a movie's case, if it wasn't previously rated, the new rating will be added
@@ -128,8 +128,8 @@ that gave ratings are sorted.
 
     Sort Video: There are 4 methods for sorting videos: by length, by number of views, by average
 rating and by number of favourites and one method for sorting genres based on popularity.
-    Sorting videos by length is done by calculating and comparing each two videos' durations and if
-they have the same value, then the videos will be compared based on their names.
+    Sorting videos by length is done by comparing each two videos' durations and if they have the
+same value, then the videos will be compared based on their names.
     Sorting videos by views is done by comparing each two videos' number of views and if they have
 the same value, then the videos will be compared based on their names. Only videos with views are
 sorted.

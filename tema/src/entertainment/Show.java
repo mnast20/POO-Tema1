@@ -16,6 +16,7 @@ public final class Show extends Video {
         this.numberOfSeasons = show.numberOfSeasons;
         this.seasons = new ArrayList<>();
         this.seasons.addAll(show.seasons);
+        this.setDuration(calculateDuration());
     }
 
     /**
@@ -43,7 +44,7 @@ public final class Show extends Video {
     }
 
     /**
-     * Method calculating average rating of movie
+     * Method calculating average rating of show
      */
     public double calculateRating() {
         double averageRating = 0;
@@ -68,7 +69,7 @@ public final class Show extends Video {
     /**
      * Method calculating the duration of a show
      */
-    public int getDuration() {
+    public int calculateDuration() {
         int length = 0;
         // calculate sum of season ratings
         for (Season season : seasons) {

@@ -15,6 +15,7 @@ public class Video {
     private double rating;
     private int nrViews;
     private int nrFavourites;
+    private int duration;
 
     /**
      * Video copy constructor based on another video
@@ -29,6 +30,7 @@ public class Video {
         rating = video.rating;
         nrViews = video.nrViews;
         nrFavourites = video.nrFavourites;
+        duration = video.duration;
     }
 
     /**
@@ -42,6 +44,7 @@ public class Video {
         rating = 0;
         nrViews = 0;
         nrFavourites = 0;
+        duration = 0;
     }
 
     /**
@@ -79,6 +82,10 @@ public class Video {
         return nrFavourites;
     }
 
+    public final int getDuration() {
+        return duration;
+    }
+
     public final void setRating(final double rating) {
         this.rating = rating;
     }
@@ -91,11 +98,8 @@ public class Video {
         this.nrFavourites = nrFavourites;
     }
 
-    /**
-     * Method returning the duration of a video
-     */
-    public int getDuration() {
-        return 0;
+    public final void setDuration(final int duration) {
+        this.duration = duration;
     }
 
     /**
