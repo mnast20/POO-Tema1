@@ -11,9 +11,9 @@ The Actor class holds the actor's name, career description, filmography and a ma
 # Video:
 Class extended by the Movie and Show entities, keeps a video's title, list of genres, cast, duration, rating and year of making, as well as number of views and number of appearances within users' favourites list.
    
-<- Movie: class storing a movie's duration and list of given ratings from all users that will be used in finding movie's average rating.
+- Movie: class storing a movie's duration and list of given ratings from all users that will be used in finding movie's average rating.
 
-<- Show: class containing a show's number of seasons and a list of seasons. Every season will also have a list of ratings of their own, used for calculating show's average rating
+- Show: class containing a show's number of seasons and a list of seasons. Every season will also have a list of ratings of their own, used for calculating show's average rating
 
 ## Database class:
 The Database contains all the users, videos, actors.The class is declared as a lazy Singleton in order to be able to access the Database instance and its contents from every other class. At the end of the program, the Database will clear itself, being declared as empty.
@@ -46,28 +46,28 @@ The Search Recommendation sorts all videos in a required genre in ascending orde
 
 # Filter:
 The filters will only be applied to Queries
-<- Actor Filters:
+- Actor Filters:
 Words: A given list of actors will be traversed and any actor that doesn't have the required keywords in their career description will be filtered out.
 Awards: A given list of actors will be traversed and any actor that hasn't received the required awards will be filtered out.
 
-<- Video Filters:
+- Video Filters:
 Year: A given list of videos will be traversed and any video that is not made in one of the required years will be filtered out.
 Genre: A given list of videos will be traversed and any video that doesn't have all the required genres will be filtered out.
 
 # Query:
-<- Actor queries:
+- Actor queries:
 There are 3 types of queries for the actors: average, awards and filter description.  
 Average Query sorts all actors by their average rating (calculated using actor's filmography ratings) in a specified order. After, the last few elements in the list are removed until list has a size of N (number mentioned in the action's data).  
 Awards Query sorts only the actors with given based on their number of overall awards in a specified order.  
 Filter Description Query sorts only the actors with given keywords in their career descriptions based on their names in a specified order.  
 
-<- Video Queries:
+- Video Queries:
 There are 4 types of queries for the videos: rating, favourite and most viewed.
 Rating Query sorts all videos by their average rating in a specified order. After, the last few elements in the list are removed until list has a size of N (number mentioned in the action's data).  
 Favourite Query sorts all videos by their number of favourites in a specified order. After, the last few elements in the list are removed until list has a size of N (number mentioned in the action's data).  
 Most Viewed Query sorts all videos by their number of views in a specified order. After, the last few elements in the list are removed until list has a size of N(number mentioned in the action's data).
 
-<- User Queries:
+- User Queries:
 There is only 1 type of query for the users: number of ratings.
 Number of Ratings Query sorts all users by their number of ratings in a specified order. After, the last few elements in the list are removed until list has a size of N (number mentioned in the action's data).  
 
